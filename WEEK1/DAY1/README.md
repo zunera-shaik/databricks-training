@@ -23,8 +23,8 @@ The goal of this task is to understand and practice basic to advanced SQL querie
 ```
 WEEK1/
  └── DAY1/
-      ├── Table_Creation.sql
-      ├── Sql_Queries.sql
+      ├── TABLE_CREATION.sql
+      ├── Sql_queries.sql
       |--- outputs.sql
       └── README.md
 ```
@@ -94,8 +94,8 @@ Output:
 
 ## 🚀 How to Run
 
-1. Copy `Table_Creation.sql` into DB-Fiddle (Schema section)
-2. Copy queries from `Sql_Queries.sql` into Query section
+1. Copy `TABLE_CREATION.sql` into DB-Fiddle (Schema section)
+2. Copy queries from `Sql_queries.sql` into Query section
 3. Execute and verify outputs
 
 ---
