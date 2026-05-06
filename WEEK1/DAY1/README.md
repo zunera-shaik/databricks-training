@@ -23,8 +23,9 @@ The goal of this task is to understand and practice basic to advanced SQL querie
 ```
 WEEK1/
  └── DAY1/
-      ├── datacreation.sql
-      ├── solutions.sql
+      ├── Table_Creation.sql
+      ├── Sql_Queries.sql
+      |--- outputs.sql
       └── README.md
 ```
 
