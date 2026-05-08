@@ -7,7 +7,7 @@ ON s.student_id = e.student_id
 LEFT JOIN courses c
 ON e.course_id = c.course_id;
 
---------------------------------------------------
+
 
 -- 2. Courses with no students enrolled
 
@@ -17,7 +17,7 @@ LEFT JOIN enrollments e
 ON c.course_id = e.course_id
 WHERE e.student_id IS NULL;
 
---------------------------------------------------
+
 
 -- 3. Instructors and courses they teach
 
@@ -26,7 +26,7 @@ FROM instructors i
 LEFT JOIN courses c
 ON i.instructor_id = c.instructor_id;
 
---------------------------------------------------
+
 
 -- 4. Courses without instructors
 
@@ -34,7 +34,7 @@ SELECT course_name
 FROM courses
 WHERE instructor_id IS NULL;
 
---------------------------------------------------
+
 
 -- 5. Students and enrollment info using RIGHT JOIN
 
@@ -43,7 +43,7 @@ FROM students s
 RIGHT JOIN enrollments e
 ON s.student_id = e.student_id;
 
---------------------------------------------------
+
 
 -- 6. Students not enrolled in any course
 
@@ -59,10 +59,17 @@ WHERE e.course_id IS NULL;
 
 SELECT s.student_name, e.course_id
 FROM students s
-FULL OUTER JOIN enrollments e
+LEFT JOIN enrollments e
+ON s.student_id = e.student_id
+
+UNION
+
+SELECT s.student_name, e.course_id
+FROM students s
+RIGHT JOIN enrollments e
 ON s.student_id = e.student_id;
 
---------------------------------------------------
+
 
 -- 8. Courses never appeared in enrollments
 
@@ -72,16 +79,22 @@ LEFT JOIN enrollments e
 ON c.course_id = e.course_id
 WHERE e.course_id IS NULL;
 
---------------------------------------------------
+
 
 -- 9. FULL OUTER JOIN instructors and courses
 
 SELECT i.instructor_name, c.course_name
 FROM instructors i
-FULL OUTER JOIN courses c
+LEFT JOIN courses c
+ON i.instructor_id = c.instructor_id
+
+UNION
+
+SELECT i.instructor_name, c.course_name
+FROM instructors i
+RIGHT JOIN courses c
 ON i.instructor_id = c.instructor_id;
 
---------------------------------------------------
 
 -- 10. Student, course and instructor report
 
@@ -97,7 +110,6 @@ ON e.course_id = c.course_id
 LEFT JOIN instructors i
 ON c.instructor_id = i.instructor_id;
 
---------------------------------------------------
 
 -- Bonus Challenge
 
